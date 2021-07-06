@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'DockerNew', url: 'https://registry.hub.docker.com') {
-                            bat "docker push 9492261286/testimage:build"
+                            sh "docker push 9492261286/testimage:build"
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
