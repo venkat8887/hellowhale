@@ -33,7 +33,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy configs: '', credentialsType: 'Text', kubeConfig: [path: '/root/.minikube/ca.crt'], kubeconfigId: '', secretName: '', ssh: [sshCredentialsId: 'sonar', sshServer: 'https://192.168.49.2:8443'], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://192.168.49.2:8443']
         }
       }
     }
