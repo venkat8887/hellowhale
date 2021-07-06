@@ -22,6 +22,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'DockerNew', url: 'https://registry.hub.docker.com') {
+                            sh "docker push 9492261286/testimage:build"
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
